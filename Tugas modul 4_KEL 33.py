@@ -1,5 +1,5 @@
 class Kasir:
-    def _init_(self):
+    def __init__(self):
         self.keranjang = []
 
     def tampilkan_menu(self):
