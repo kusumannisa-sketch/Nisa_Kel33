@@ -94,7 +94,7 @@ class Kasir:
 
 
 # Menjalankan program utama
-if _name_ == "_main_":
+if __name__ == "__main__":
     kasir = Kasir()  # Membuat objek dari kelas Kasir
     kasir.jalankan()  # Memulai program kasir
 
