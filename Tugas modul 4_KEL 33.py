@@ -49,5 +49,52 @@ class Kasir:
                 print(f"{barang_terhapus['nama']} berhasil dihapus dari keranjang.\n")
             else:
                 print("Nomor barang tidak valid.\n")
+                def checkout(self):
+        if not self.keranjang:
+            print("Keranjang belanja kosong.\n")
+        else:
+            total_belanja = sum(item["total"] for item in self.keranjang)
+            print("===== STRUK PEMBAYARAN =====")
+            self.lihat_keranjang()
+            print(f"Total yang harus dibayar: Rp{total_belanja}")
+
+            # Menggunakan pengkondisian untuk memeriksa pembayaran
+            while True:
+                try:
+                    bayar = float(input("Masukkan jumlah uang yang dibayarkan: "))
+                    if bayar >= total_belanja:
+                        kembalian = bayar - total_belanja
+                        print(f"Pembayaran berhasil. Kembalian Anda: Rp{kembalian}\n")
+                        self.keranjang.clear()  # Mengosongkan keranjang setelah checkout
+                        break
+                    else:
+                        print("Uang tidak cukup! Silakan coba lagi.")
+                except ValueError:
+                    print("Input tidak valid. Silakan masukkan angka yang benar.\n")
+                    def jalankan(self):
+        while True:
+            self.tampilkan_menu()
+            pilihan = input("Pilih menu: ")
+
+            # Menggunakan pengkondisian untuk menangani pilihan
+            if pilihan == "1":
+                self.tambah_barang()
+            elif pilihan == "2":
+                self.lihat_keranjang()
+            elif pilihan == "3":
+                self.hapus_barang()
+            elif pilihan == "4":
+                self.checkout()
+            elif pilihan == "5":
+                print("Terima kasih telah menggunakan kasir kami!")
+                break
+            else:
+                print("Pilihan tidak valid.\n")
+
+
+# Menjalankan program utama
+if __name__ == "__main__":
+    kasir = Kasir()  # Membuat objek dari kelas Kasir
+    kasir.jalankan()  # Memulai program kasir
 
 
