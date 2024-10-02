@@ -72,4 +72,29 @@ class Kasir:
                         print("Uang tidak cukup! Silakan coba lagi.")
                 except ValueError:
                     print("Input tidak valid. Silakan masukkan angka yang benar.\n")
+                    def jalankan(self):
+        while True:
+            self.tampilkan_menu()
+            pilihan = input("Pilih menu: ")
+
+            # Menggunakan pengkondisian untuk menangani pilihan
+            if pilihan == "1":
+                self.tambah_barang()
+            elif pilihan == "2":
+                self.lihat_keranjang()
+            elif pilihan == "3":
+                self.hapus_barang()
+            elif pilihan == "4":
+                self.checkout()
+            elif pilihan == "5":
+                print("Terima kasih telah menggunakan kasir kami!")
+                break
+            else:
+                print("Pilihan tidak valid.\n")
+
+
+# Menjalankan program utama
+if _name_ == "_main_":
+    kasir = Kasir()  # Membuat objek dari kelas Kasir
+    kasir.jalankan()  # Memulai program kasir
 
