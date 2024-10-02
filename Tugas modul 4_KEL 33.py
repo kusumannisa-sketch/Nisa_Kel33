@@ -47,7 +47,7 @@ class Kasir:
             if 0 <= pilihan < len(self.keranjang):
                 barang_terhapus = self.keranjang.pop(pilihan)
                 print(f"{barang_terhapus['nama']} berhasil dihapus dari keranjang.\n")
-            else:
+        else:
             print("Nomor barang tidak valid.\n")
 
     def checkout(self):
@@ -72,7 +72,7 @@ class Kasir:
                         print("Uang tidak cukup! Silakan coba lagi.")
                 except ValueError:
                     print("Input tidak valid. Silakan masukkan angka yang benar.\n")
-                    def jalankan(self):
+    def jalankan(self):
         while True:
             self.tampilkan_menu()
             pilihan = input("Pilih menu: ")
