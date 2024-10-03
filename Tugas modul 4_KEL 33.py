@@ -49,7 +49,8 @@ class Kasir:
                 print(f"{barang_terhapus['nama']} berhasil dihapus dari keranjang.\n")
             else:
                 print("Nomor barang tidak valid.\n")
-                def checkout(self):
+
+    def checkout(self):
         if not self.keranjang:
             print("Keranjang belanja kosong.\n")
         else:
@@ -71,7 +72,8 @@ class Kasir:
                         print("Uang tidak cukup! Silakan coba lagi.")
                 except ValueError:
                     print("Input tidak valid. Silakan masukkan angka yang benar.\n")
-                    def jalankan(self):
+
+    def jalankan(self):
         while True:
             self.tampilkan_menu()
             pilihan = input("Pilih menu: ")
@@ -96,5 +98,3 @@ class Kasir:
 if __name__ == "__main__":
     kasir = Kasir()  # Membuat objek dari kelas Kasir
     kasir.jalankan()  # Memulai program kasir
-
-
