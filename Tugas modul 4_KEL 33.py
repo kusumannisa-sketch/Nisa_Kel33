@@ -23,27 +23,28 @@ class Kasir:
         # Menambahkan item ke keranjang (array/list)
         self.keranjang.append({
             "nama": nama_barang,
-            print("Nomor barang tidak valid.\n")
+           "harga": harga_barang,
+          "jumlah": jumlah_barang,
+           "total": total_harga
+        })
+        print(f"{nama_barang} berhasil ditambahkan ke keranjang.\n")
 
-    def checkout(self):
+    def lihat_keranjang(self):
         if not self.keranjang:
             print("Keranjang belanja kosong.\n")
         else:
-            total_belanja = sum(item["total"] for item in self.keranjang)
-            print("===== STRUK PEMBAYARAN =====")
-            self.lihat_keranjang()
-            print(f"Total yang harus dibayar: Rp{total_belanja}")
+            print("===== KERANJANG BELANJA =====")
+            for i, item in enumerate(self.keranjang, 1):
+                # Menggunakan pengulangan untuk menampilkan setiap item
+                print(f"{i}. {item['nama']} - {item['jumlah']} x Rp{item['harga']} = Rp{item['total']}")
+            print("==============================\n")
 
-            # Menggunakan pengkondisian untuk memeriksa pembayaran
-            while True:
-                try:
-                    bayar = float(input("Masukkan jumlah uang yang dibayarkan: "))
-                    if bayar >= total_belanja:
-                        kembalian = bayar - total_belanja
-                        print(f"Pembayaran berhasil. Kembalian Anda: Rp{kembalian}\n")
-                        self.keranjang.clear()  # Mengosongkan keranjang setelah checkout
-                        break
-                    else:
-                        print("Uang tidak cukup! Silakan coba lagi.")
-                except ValueError:
-                    print("Input tidak valid. Silakan masukkan angka yang benar.\n")
+    def hapus_barang(self):
+        self.lihat_keranjang()
+        if self.keranjang:
+            pilihan = int(input("Masukkan nomor barang yang ingin dihapus: ")) - 1
+            # Menggunakan pengkondisian untuk memeriksa validitas input
+            if 0 <= pilihan < len(self.keranjang):
+                barang_terhapus = self.keranjang.pop(pilihan)
+                print(f"{barang_terhapus['nama']} berhasil dihapus dari keranjang.\n")
+            else:
